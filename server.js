@@ -13,6 +13,8 @@ const exceptionRoutes = require('./routes/exceptions');
 const leaveRoutes = require('./routes/leave');
 
 const app = express();
+const PORT = process.env.SERVER_PORT || 8080;
+
 app.use(bodyParser.json());
 app.use(cors());
 
@@ -24,4 +26,4 @@ app.use('/attendance', attendanceRoutes);
 app.use('/exceptions', exceptionRoutes);
 app.use('/leave', leaveRoutes);
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
