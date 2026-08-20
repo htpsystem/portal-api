@@ -10,6 +10,6 @@ router.post('/checkin', authenticateToken, checkIn);
 router.post('/checkout', authenticateToken, checkOut);
 
 // Fetch attendance logs
-router.get('/:userId', authenticateToken, getUserAttendance);
+router.get('/', authenticateToken, getUserAttendance);
 
 module.exports = router;

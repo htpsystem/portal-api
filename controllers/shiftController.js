@@ -20,11 +20,11 @@ exports.createShift = async (req, res) => {
 };
 
 exports.getUserShifts = async (req, res) => {
-  const { userId } = req.params;
+  const { id } = req.user;
   try {
     const result = await pool.query(
       'SELECT * FROM shifts WHERE user_id=$1 ORDER BY start_time ASC',
-      [userId]
+      [id]
     );
     res.json(result.rows);
   } catch (err) {

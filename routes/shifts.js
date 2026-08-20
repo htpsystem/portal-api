@@ -7,6 +7,6 @@ const authenticateToken = require('../middleware/auth');
 router.post('/', authenticateToken, createShift);
 
 // Employee/Admin fetch shifts
-router.get('/:userId', authenticateToken, getUserShifts);
+router.get('/', authenticateToken, getUserShifts);
 
 module.exports = router;

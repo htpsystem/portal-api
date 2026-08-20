@@ -31,12 +31,12 @@ exports.checkOut = async (req, res) => {
 };
 
 exports.getUserAttendance = async (req, res) => {
-  const { userId } = req.params;
+  const { id } = req.user;
 
   try {
     const result = await pool.query(
       'SELECT * FROM attendance_logs WHERE user_id=$1 ORDER BY check_in_time DESC',
-      [userId]
+      [id]
     );
     res.json(result.rows);
   } catch (err) {
